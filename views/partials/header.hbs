@@ -1,0 +1,78 @@
+<style>
+.sidebar {
+  height: 100%;
+  width: 60px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: white;
+  overflow-x: hidden;
+  padding-top: 80px;
+  box-shadow: 5px 0px 6px -6px black;
+}
+.sidebar a {
+  padding: 10px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+}
+
+.sidebar a:hover {
+  color: #5bc0de;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  padding: 0px 10px;
+}
+
+</style>
+
+<div class="sidebar">
+  <a href="/"><i class="fa fa-fw fa-bars"></i> </a>
+  <a href="#search"><i class="fa fa-fw fa-search"></i> </a>
+  <a href="/"><i class="fa fa-fw fa-institution"></i></a>
+</div>
+
+
+<nav class="navbar navbar-default" style ="background-color: black">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better moblackplay -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <img src ="http://www.whitepanda.in/img/full_logo_white.png" style = "padding-top:10px ;padding-left :110px"alt ="...">
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                  <a href="/shopping-cart/">
+                    <i class="fa fa-shopping-cart" style ="color:white;font-size: 30px"aria-hidden="true">
+                    <span class="badge badge-light">{{session.cart.totalQty}}</span></i>
+                  </a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" style ="color:white;font-size: 30px" aria-hidden="true"></i> <span class="caret" style ="color:white"></span></a>
+                    <ul class="dropdown-menu">
+                      {{# if login}}
+                      <li><a href="/user/profile">User Account</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a href="/user/logout">Logout</a></li>
+                      {{ else }}
+                      <li><a href="/user/signup">Sign up</a></li>
+                      <li><a href="/user/signin">Sign in</a></li>
+                      {{/if}}
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
